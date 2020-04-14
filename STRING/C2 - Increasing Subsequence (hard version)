@@ -1,0 +1,153 @@
+                                     //////increasing subsequence (c2)///////
+/*
+JAYANT MITTAL
+*/
+#include<bits/stdc++.h>
+using namespace std;
+#define pb push_back
+#define speed_up ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define f(i,n) for(i=0;i<n;i++)
+typedef long long int lli;
+int main()
+{
+    lli n,i,j,flag=0,c=0,l,z,d=0;
+    cin>>n;
+    std::vector<char>vec ;
+    lli ar[n];
+    f(i,n)
+    cin>>ar[i];
+    i=0;
+    j=n-1;
+    if(ar[i]<ar[j])
+    {
+       
+        vec.pb('L');
+        z=ar[i];
+         i++;
+    }
+    else
+    {
+        if(ar[i]>ar[j])
+    {
+     
+        vec.pb('R');
+        z=ar[j];
+           j--;
+    }
+    else
+    {flag=1;
+  
+    }
+    
+    }
+   if(flag==0)
+   {
+    while(i<=j)
+    {
+        if(ar[i]<ar[j])
+        {
+            if(z<ar[i])
+            {
+                vec.pb('L');
+                 z=ar[i];
+                i++;
+               
+            }
+            else
+            {
+                if(z<ar[j])
+                {
+                    vec.pb('R');
+                     z=ar[j];
+                    j--;
+                                 
+                    
+                }
+                else
+                break;
+            }
+        }
+        else
+       {
+        if(ar[i]>ar[j])
+        {
+            if(z<ar[j])
+            {
+                vec.pb('R');
+                
+                z=ar[j];
+                j--;
+            }
+            else
+            {
+                if(z<ar[i])
+                {
+                    vec.pb('L');
+                  
+                    z=ar[i];
+                      i++;
+                }
+                else
+                break;
+            }
+        }
+        
+        else
+         { if(z<ar[i])
+        {
+            flag=1;
+            z=ar[i];
+            break;
+            
+        }
+        else
+        break;
+         }
+       }
+    }
+   }
+    if(flag==1)
+    {
+        z=ar[i];
+        for(l=i+1;l<j;l++)
+        {
+            if(z<ar[l])
+            {
+                c++;
+                z=ar[l];
+            }
+            else 
+            break;
+        }
+        z=ar[i];
+        for(l=j-1;l>i;l--)
+        {
+            if(z<ar[l])
+            {
+                d++;
+                z=ar[l];
+            }
+            else 
+            break;
+        }
+        if(c>=d)
+        {
+            for(l=0;l<=c;l++)
+            {
+                vec.pb('L');
+            }
+        }
+        else
+        {
+            for(l=0;l<=d;l++)
+            {
+                vec.pb('R');
+            }
+        }
+        
+    }
+    cout<<vec.size()<<"\n";
+    for(i=0;i<vec.size();i++)
+    cout<<vec[i];
+    
+}
