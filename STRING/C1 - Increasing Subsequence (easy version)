@@ -1,0 +1,107 @@
+                                     //////increasing subsequence (c1)///////
+/*
+JAYANT MITTAL
+*/
+#include <bits/stdc++.h>
+using namespace std;
+#define pb push_back
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	
+	int i,j,n,d,z;
+	
+			vector<char>vec;
+ 
+	
+	cin>>n;
+	int ar[n];
+	for(i=0;i<n;i++)
+	{
+		cin>>ar[i];
+	}
+	i=0;
+	j=n-1;
+	z=min(ar[i],ar[j]);
+	if(z==ar[i])
+	{
+		
+	vec.pb('L');
+	i++;
+	}
+	else
+	{
+		
+	vec.pb('R');
+	j--;
+	
+	}
+	while(i<=j)
+	{
+		if(i==j&&ar[i]>z)
+		{
+			vec.pb('L');
+			i++;
+			
+		}
+		
+		else
+		{
+			
+		
+		if(ar[i]<ar[j])
+		{
+			if(ar[i]>z)
+			{
+				z=ar[i];
+				vec.pb('L');
+				i++;
+			}
+			else
+			{
+				if(ar[j]>z)
+				{
+					
+				z=ar[j];
+					vec.pb('R');
+					j--;
+				}
+				else
+				break;
+			}
+		}
+		else
+		{
+			if(ar[j]>z)
+			{
+				z=ar[j];
+				vec.pb('R');
+				j--;
+			}
+			else
+			{
+				if(ar[i]>z)
+				{
+					z=ar[i];
+					
+					vec.pb('L');
+					i++;
+				}
+				else
+				break;
+			}
+		
+		}
+		
+		}
+		
+		
+	}
+	
+	d=vec.size();
+	cout<<d<<"\n";
+	for(i=0;i<d;i++)
+	cout<<vec[i];
+ 
+	}
