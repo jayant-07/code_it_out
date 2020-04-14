@@ -1,0 +1,48 @@
+                          //TWO TEAM COMPOSING
+                          
+ /*
+ JAYANT MITTAL 
+ cse depart.
+ IET LUCKNOW UP
+ */
+#include<bits/stdc++.h>
+using namespace std;
+#define speed_up ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define f(i,n) for(i=0;i<n;i++)
+#define test int t;cin>>t;while(t--)
+typedef long long int lli;
+int main()
+{
+    int n,i,a,c,d;
+    speed_up
+    test
+    {
+    cin>>n;
+    d=0;
+    c=0;
+    int ar[200001]={0};
+    
+    f(i,n)
+    {
+        cin>>a;
+        ar[a]++;
+    }
+    for(i=0;i<=200000;i++)
+    {
+        if(ar[i]>0)
+        {
+            c++;
+            d=max(d,ar[i]);
+         }
+       
+        
+    }
+   
+    if(d<c)
+    cout<<d<<"\n";
+    if(d>c)
+    cout<<c<<"\n";
+    if(d==c)
+    cout<<c-1<<"\n";
+    
+    }
