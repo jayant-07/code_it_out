@@ -1,0 +1,50 @@
+                                                   //FLAG
+/*
+JAYANT MITTAL
+*/
+#include<bits/stdc++.h>
+using namespace std;
+#define speed_up ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define f(i,n) for(i=0;i<n;i++)
+typedef long long int lli;
+int main()
+{
+    
+    int n,m,i,e=-1,f,a;
+    cin>>n>>m;
+    int flag=0;
+    for(i=0;i<n;i++)
+    {
+        int c=0,j=0;
+        f=e;
+        int cr[10]={0};
+        string str;
+        cin>>str;
+        while(str[j]!='\0')
+        {
+            cr[str[j]-48]++;
+            j++;
+        }
+        for(j=0;j<10;j++)
+        {
+            if(cr[j]==m)
+            {
+                c++;
+                e=j;
+            }
+        }
+     
+        if(e==f)
+    {    flag=1;
+        break;
+    }
+    else
+    {
+        if(c!=1)
+        {
+            flag=1;
+            break;
+        }
+        
+    }
+    
